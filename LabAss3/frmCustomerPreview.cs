@@ -16,11 +16,14 @@ namespace LabAss3
         {
             InitializeComponent();
         }
-        public void SetValues(string name,string Country,string Gender,string Hobby,string Status)
+        public void SetValues(string name, string Country, string Gender, string Hobby, string Status)
         {
+            if (name is null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
 
-
-            lblName.Text = Name;
+            lblName.Text =  Name;
             lblCountry.Text = Country;
             lblGender.Text = Gender;
             lblHobby.Text = Hobby;

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,31 +21,37 @@ namespace LabAss3
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "窗口 " + childFormNumber++;
+            Form childForm = new Form
+            {
+                MdiParent = this,
+                Text = "窗口 " + childFormNumber++
+            };
             childForm.Show();
         }
 
         private void OpenFile(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*"
+            };
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                string FileName = openFileDialog.FileName;
+                _ = openFileDialog.FileName;
             }
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*";
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*"
+            };
             if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                string FileName = saveFileDialog.FileName;
+                _ = saveFileDialog.FileName;
             }
         }
 
@@ -104,10 +110,21 @@ namespace LabAss3
             }
         }
 
-        private void enterCustomerToolStripMenuItem_Click(object sender,EventArgs e)
+        private void EnterCustomerToolStripMenuItem_Click(object sender,EventArgs e)
         {
-            frmCustomerDataEntry Obj = new frmCustomerDataEntry();
-            Obj.MdiParent = this;
+            Form1 Obj = new Form1
+            {
+                MdiParent = this
+            };
+            Obj.Show();
+        }
+
+        private void EnterCustomerToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Form1 Obj = new Form1
+            {
+                MdiParent = this
+            };
             Obj.Show();
         }
     }

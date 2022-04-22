@@ -1,6 +1,8 @@
-﻿namespace LabAss3
+﻿using System;
+
+namespace LabAss3
 {
-    partial class frmCustomerDataEntry
+    partial class Form1
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -32,19 +34,27 @@
             this.cmbCountry = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioMale = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioFemale = new System.Windows.Forms.RadioButton();
+            this.radioMale = new System.Windows.Forms.RadioButton();
             this.chkReading = new System.Windows.Forms.CheckBox();
             this.chkPainting = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioMarried = new System.Windows.Forms.RadioButton();
             this.radioUnmarried = new System.Windows.Forms.RadioButton();
+            this.radioMarried = new System.Windows.Forms.RadioButton();
             this.frmCustomerPreview = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dtgCustomer = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lbllD = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -85,16 +95,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gender";
             // 
-            // radioMale
+            // groupBox2
             // 
-            this.radioMale.AutoSize = true;
-            this.radioMale.Location = new System.Drawing.Point(40, 24);
-            this.radioMale.Name = "radioMale";
-            this.radioMale.Size = new System.Drawing.Size(60, 19);
-            this.radioMale.TabIndex = 0;
-            this.radioMale.TabStop = true;
-            this.radioMale.Text = "Male";
-            this.radioMale.UseVisualStyleBackColor = true;
+            this.groupBox2.Location = new System.Drawing.Point(3, 111);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(180, 10);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
             // 
             // radioFemale
             // 
@@ -106,6 +114,17 @@
             this.radioFemale.TabStop = true;
             this.radioFemale.Text = "Female";
             this.radioFemale.UseVisualStyleBackColor = true;
+            // 
+            // radioMale
+            // 
+            this.radioMale.AutoSize = true;
+            this.radioMale.Location = new System.Drawing.Point(40, 24);
+            this.radioMale.Name = "radioMale";
+            this.radioMale.Size = new System.Drawing.Size(60, 19);
+            this.radioMale.TabIndex = 0;
+            this.radioMale.TabStop = true;
+            this.radioMale.Text = "Male";
+            this.radioMale.UseVisualStyleBackColor = true;
             // 
             // chkReading
             // 
@@ -145,15 +164,6 @@
             this.comboBox1.TabIndex = 8;
             this.comboBox1.Text = "Bangladesh";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(3, 111);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 10);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.radioUnmarried);
@@ -164,18 +174,6 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Status";
-            // 
-            // radioMarried
-            // 
-            this.radioMarried.AutoSize = true;
-            this.radioMarried.Location = new System.Drawing.Point(40, 37);
-            this.radioMarried.Name = "radioMarried";
-            this.radioMarried.Size = new System.Drawing.Size(84, 19);
-            this.radioMarried.TabIndex = 3;
-            this.radioMarried.TabStop = true;
-            this.radioMarried.Text = "Married";
-            this.radioMarried.UseVisualStyleBackColor = true;
-            this.radioMarried.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioUnmarried
             // 
@@ -188,6 +186,18 @@
             this.radioUnmarried.Text = "Unmarried";
             this.radioUnmarried.UseVisualStyleBackColor = true;
             // 
+            // radioMarried
+            // 
+            this.radioMarried.AutoSize = true;
+            this.radioMarried.Location = new System.Drawing.Point(40, 37);
+            this.radioMarried.Name = "radioMarried";
+            this.radioMarried.Size = new System.Drawing.Size(84, 19);
+            this.radioMarried.TabIndex = 3;
+            this.radioMarried.TabStop = true;
+            this.radioMarried.Text = "Married";
+            this.radioMarried.UseVisualStyleBackColor = true;
+            this.radioMarried.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
+            // 
             // frmCustomerPreview
             // 
             this.frmCustomerPreview.Location = new System.Drawing.Point(236, 397);
@@ -196,13 +206,87 @@
             this.frmCustomerPreview.TabIndex = 10;
             this.frmCustomerPreview.Text = "Preview";
             this.frmCustomerPreview.UseVisualStyleBackColor = true;
-            this.frmCustomerPreview.Click += new System.EventHandler(this.button1_Click);
+            this.frmCustomerPreview.Click += new System.EventHandler(this.RadioButton1_CheckedChanged);
             // 
-            // frmCustomerDataEntry
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(354, 397);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dtgCustomer
+            // 
+            this.dtgCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgCustomer.Location = new System.Drawing.Point(571, 77);
+            this.dtgCustomer.Name = "dtgCustomer";
+            this.dtgCustomer.RowHeadersWidth = 51;
+            this.dtgCustomer.RowTemplate.Height = 27;
+            this.dtgCustomer.Size = new System.Drawing.Size(552, 370);
+            this.dtgCustomer.TabIndex = 12;
+            this.dtgCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCustomer_CellClick);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(236, 439);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Update";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lbllD
+            // 
+            this.lbllD.AutoSize = true;
+            this.lbllD.Location = new System.Drawing.Point(159, 443);
+            this.lbllD.Name = "lbllD";
+            this.lbllD.Size = new System.Drawing.Size(0, 15);
+            this.lbllD.TabIndex = 14;
+            this.lbllD.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(159, 443);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 15);
+            this.label1.TabIndex = 15;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(165, 447);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 15);
+            this.lblID.TabIndex = 16;
+            this.lblID.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(354, 439);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 17;
+            this.button3.Text = "Delete";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1135, 524);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbllD);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.dtgCustomer);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.frmCustomerPreview);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.comboBox1);
@@ -213,16 +297,27 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cmbCountry);
             this.Controls.Add(this.txtName);
-            this.Name = "frmCustomerDataEntry";
+            this.Name = "Form1";
             this.Text = "Customer Data Entry Screen";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btnPreview_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -242,6 +337,13 @@
         private System.Windows.Forms.RadioButton radioUnmarried;
         private System.Windows.Forms.RadioButton radioMarried;
         private System.Windows.Forms.Button frmCustomerPreview;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dtgCustomer;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lbllD;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Button button3;
     }
 }
 
